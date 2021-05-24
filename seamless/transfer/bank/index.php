@@ -94,7 +94,7 @@ $response['status'] = 403;
 	$mx = new ProvidusTransfer;
 	$output = $mx->getBankList();
 	$output = json_decode($output, TRUE);
-	if($output["responseCode"]=="")
+	if($output["responseCode"]=="00")
 	{
 		$status = TRUE;
 		$data = $output['banks'];

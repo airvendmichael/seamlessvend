@@ -102,7 +102,7 @@ $account = $data['details']['account'];
 	$data =  ["accountNumber"=>$account, "bankCode"=>$bank];
 	$output = $mx->verifyAccount($data);
 	$output = json_decode($output, TRUE);
-	if($output["responseCode"]==""){
+	if($output["responseCode"]=="00"){
 		$status = TRUE;
 		$data = array('settlement_bank'=>$bank, 'account_number'=>$account, "account_name"=>$output['accountName']);
 	}
