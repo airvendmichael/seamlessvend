@@ -86,7 +86,7 @@ $bank = $data['details']['settlementBank'];
 $account = $data['details']['account'];
 $destination = $account;
 $amount = $data['details']['amount'];
-$amount = $amount.".00";
+$amount = number_format((float)$amount, 2, '.', '');
 $remark = $data['details']['remark'];
 $ref = $data['details']['ref'];
 
