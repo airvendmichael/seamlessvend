@@ -222,13 +222,11 @@ if($output['status'] == "success"){
 //Providus
 
 $mx = new ProvidusTransfer;
-$data =  ["name"=>"Callphone Limited","amount"=>$amount, "narration"=>$remark, "accountNumber"=>$account, "bankCode"=>$bank, "ref"=>"CPL-".$transaction_id];
+$data =  ["name"=>"Callphone LTD","amount"=>$amount, "narration"=>$remark, "accountNumber"=>$account, "bankCode"=>$bank, "ref"=>"CPL-".$transaction_id];
 $output = $mx->transferFund($data);
 $output = json_decode($output, TRUE);
 if($output["responseCode"] == "00"){
 	$status = TRUE;
-
-	
 
 	$response = array("settlement_bank"=>$bank,
 		"transaction_id"=>$transaction_id,
