@@ -64,12 +64,12 @@ if($vendor === FALSE) {
 }
 
 //Second Level Verification
-$ipaddress = ipaddress($vendor['linked_id'],$request_ip,$mysqli);
-if($ipaddress == FALSE){
-	$response['status'] = 403;
-	$response['message'] = "Failed Second Level Verification";
-	vend_response($response);
-}
+// $ipaddress = ipaddress($vendor['linked_id'],$request_ip,$mysqli);
+// if($ipaddress == FALSE){
+// 	$response['status'] = 403;
+// 	$response['message'] = "Failed Second Level Verification";
+// 	vend_response($response);
+// }
 
 //Test Hashing with hashing Key
 $test = $input.$vendor['hash_key'];
