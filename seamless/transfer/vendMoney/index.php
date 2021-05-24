@@ -196,28 +196,28 @@ error_log($log_string,3,'vtu2_request.log');
 
 //***************************************************************************
 //Payant
-$output = transferMoney($payload);
-$output = json_decode($output, TRUE);
-if($output['status'] == "success"){
-	$status = TRUE;
-	$res= $output['data'];
-	$settlement_bank=$res["settlement_bank"];
-	$account_name=$res["account_name"];
-	$account_number=$res["account_number"];
-	$updated_at=$res["updated_at"];
-	$created_at=$res["created_at"];
-	$gateway_response=$res["gateway_response"];
-	$disburse_status=$res["disburse_status"];
-	$disburse_ref=$res["disburse_ref"];
+// $output = transferMoney($payload);
+// $output = json_decode($output, TRUE);
+// if($output['status'] == "success"){
+// 	$status = TRUE;
+// 	$res= $output['data'];
+// 	$settlement_bank=$res["settlement_bank"];
+// 	$account_name=$res["account_name"];
+// 	$account_number=$res["account_number"];
+// 	$updated_at=$res["updated_at"];
+// 	$created_at=$res["created_at"];
+// 	$gateway_response=$res["gateway_response"];
+// 	$disburse_status=$res["disburse_status"];
+// 	$disburse_ref=$res["disburse_ref"];
 
-	$response = array("settlement_bank"=>$settlement_bank,
-		"transaction_id"=>$transaction_id,
-		"account_name"=>$account_name,
-		"account_number"=>$account_number,
-		"gateway_response"=>$gateway_response,
-		"disburse_status"=>$disburse_status,
-		"disburse_ref"=>$disburse_ref);
-}
+// 	$response = array("settlement_bank"=>$settlement_bank,
+// 		"transaction_id"=>$transaction_id,
+// 		"account_name"=>$account_name,
+// 		"account_number"=>$account_number,
+// 		"gateway_response"=>$gateway_response,
+// 		"disburse_status"=>$disburse_status,
+// 		"disburse_ref"=>$disburse_ref);
+// }
 
 //Providus
 
@@ -225,7 +225,7 @@ $mx = new ProvidusTransfer;
 $data =  ["name"=>"Callphone LTD","amount"=>$amount, "narration"=>$remark, "accountNumber"=>$account, "bankCode"=>$bank, "ref"=>"CPL-".$transaction_id];
 $output = $mx->transferFund($data);
 $output = json_decode($output, TRUE);
-if($output["responseCode"] == "00"){
+if($output["responseCode"] === "00"){
 	$status = TRUE;
 
 	$response = array("settlement_bank"=>$bank,
