@@ -82,23 +82,23 @@ $response['status'] = 403;
 
 //Call Banks Payant
 
-	$output = bankCall();
-	$output = json_decode($output, TRUE);
-	if($output['status'] == "success"){
-		$status = TRUE;
-		$data =$output['data'];
-	}
+	// $output = bankCall();
+	// $output = json_decode($output, TRUE);
+	// if($output['status'] == "success"){
+	// 	$status = TRUE;
+	// 	$data =$output['data'];
+	// }
 	
 
 //Call Bank Providus
-	// $mx = new ProvidusTransfer;
-	// $output = $mx->getBankList();
-	// $output = json_decode($output, TRUE);
-	// if($output["responseCode"]=="")
-	// {
-	// 	$status = TRUE;
-	// 	$data = $output['banks'];
-	// }
+	$mx = new ProvidusTransfer;
+	$output = $mx->getBankList();
+	$output = json_decode($output, TRUE);
+	if($output["responseCode"]=="")
+	{
+		$status = TRUE;
+		$data = $output['banks'];
+	}
 	
 
 if($status == TRUE){
