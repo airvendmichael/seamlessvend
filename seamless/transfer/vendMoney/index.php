@@ -191,7 +191,7 @@ $time_start = microtime(true);
 
 
 $date = date('Y-m-d H:i:s');
-$log_string = "\n\n" . $date . ' |Start Processor include: '.$net['airtime_processor']. "\n";
+$log_string = "\n\n" . $date . ' |Start Processor include: '.json_encode($payload). "\n";
 error_log($log_string,3,'vtu2_request.log');
 
 //***************************************************************************
