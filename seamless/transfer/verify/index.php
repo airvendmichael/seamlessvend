@@ -87,25 +87,25 @@ $bank = $data['details']['settlementBank'];
 $account = $data['details']['account'];
 
 //Payant
-	$payload = array("settlement_bank"=>$bank, "account_number"=>$account);
-	$payload = json_encode($payload);
-	$output = verifyAcc($payload);
-	$output = json_decode($output, TRUE);
-	if($output['status'] == "success"){
-		$status = TRUE;
-		$data = $output['data'];
-	}
+	// $payload = array("settlement_bank"=>$bank, "account_number"=>$account);
+	// $payload = json_encode($payload);
+	// $output = verifyAcc($payload);
+	// $output = json_decode($output, TRUE);
+	// if($output['status'] == "success"){
+	// 	$status = TRUE;
+	// 	$data = $output['data'];
+	// }
 	
 
 //Providus
-	// $mx = new ProvidusTransfer;
-	// $data =  ["accountNumber"=>$account, "bankCode"=>$bank];
-	// $output = $mx->verifyAccount($data);
-	// $output = json_decode($output, TRUE);
-	// if($output["responseCode"]==""){
-	// 	$status = TRUE;
-	// 	$data = array('settlement_bank'=>$bank, 'account_number'=>$account, "account_name"=>$output['accountName']);
-	// }
+	$mx = new ProvidusTransfer;
+	$data =  ["accountNumber"=>$account, "bankCode"=>$bank];
+	$output = $mx->verifyAccount($data);
+	$output = json_decode($output, TRUE);
+	if($output["responseCode"]==""){
+		$status = TRUE;
+		$data = array('settlement_bank'=>$bank, 'account_number'=>$account, "account_name"=>$output['accountName']);
+	}
 	
 
 
