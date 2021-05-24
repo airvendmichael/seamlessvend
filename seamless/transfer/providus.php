@@ -8,7 +8,6 @@ class ProvidusTransfer{
 
     private function api_call($data, $endpoint){
         $payload = json_encode($data);
-        print_r($payload);
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $this->base_url.$endpoint);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: application/json"));
