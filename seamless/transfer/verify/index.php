@@ -11,6 +11,7 @@ include '../../function/func.inc.php';
 include '../../function/json_func.php';
 include '../function.php';
 include '../providus.php';
+include '../provider.php';
 
 
 //The Server IP Address
@@ -85,19 +86,19 @@ $response['status'] = 403;
 //Call Banks
 $bank = $data['details']['settlementBank'];
 $account = $data['details']['account'];
-
+if($provider == 1){
 //Payant
-	// $payload = array("settlement_bank"=>$bank, "account_number"=>$account);
-	// $payload = json_encode($payload);
-	// $output = verifyAcc($payload);
-	// $output = json_decode($output, TRUE);
-	// if($output['status'] == "success"){
-	// 	$status = TRUE;
-	// 	$data = $output['data'];
-	// }
-	
-
-//Providus
+	$payload = array("settlement_bank"=>$bank, "account_number"=>$account);
+	$payload = json_encode($payload);
+	$output = verifyAcc($payload);
+	$output = json_decode($output, TRUE);
+	if($output['status'] == "success"){
+		$status = TRUE;
+		$data = $output['data'];
+	}
+}
+else{
+	//Providus
 	$mx = new ProvidusTransfer;
 	$data =  ["accountNumber"=>$account, "bankCode"=>$bank];
 	$output = $mx->verifyAccount($data);
@@ -106,6 +107,9 @@ $account = $data['details']['account'];
 		$status = TRUE;
 		$data = array('settlement_bank'=>$bank, 'account_number'=>$account, "account_name"=>$output['accountName']);
 	}
+}
+
+
 	
 
 

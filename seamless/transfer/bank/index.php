@@ -11,7 +11,7 @@ include '../../function/func.inc.php';
 include '../../function/json_func.php';
 include '../function.php';
 include '../providus.php';
-
+include '../provider.php';
 
 //The Server IP Address
 $request_ip         = print_r($_SERVER['REMOTE_ADDR'],1);
@@ -80,17 +80,18 @@ $response['status'] = 403;
 	vend_response($response);
 }
 
-//Call Banks Payant
+if($provider ==1){
+	//Call Banks Payant
 
-	// $output = bankCall();
-	// $output = json_decode($output, TRUE);
-	// if($output['status'] == "success"){
-	// 	$status = TRUE;
-	// 	$data =$output['data'];
-	// }
+		$output = bankCall();
+		$output = json_decode($output, TRUE);
+		if($output['status'] == "success"){
+			$status = TRUE;
+			$data =$output['data'];
+		}
 	
-
-//Call Bank Providus
+}else{
+	//Call Bank Providus
 	$mx = new ProvidusTransfer;
 	$output = $mx->getBankList();
 	$output = json_decode($output, TRUE);
@@ -99,6 +100,11 @@ $response['status'] = 403;
 		$status = TRUE;
 		$data = $output['banks'];
 	}
+
+}
+
+
+
 	
 
 if($status == TRUE){
