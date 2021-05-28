@@ -30,9 +30,9 @@ if($type == 10) {
 	$response = $output;
 	if($output['status'] == 1){
 		$result = 0;
-		$token = "93848384838478347";
-		$unit = "35.56unit";
-		$transref = "udodu-guriekfu-5948594";
+		// $token = "93848384838478347";
+		// $unit = "35.56unit";
+		// $transref = "udodu-guriekfu-5948594";
 	}
 	else {
 		$result = '99999999';
@@ -44,67 +44,59 @@ if($type == 10) {
 		//Ikeja Prepaid
 if($type==11) {		
 
-	$transctionid = "CPL-".$transaction_id;
-	require "/var/www/vhosts/api/vas/electricity/itex.php";
-	//$output =api_call($requestIEvend, "http://vas.itexapp.com/vas/ie/purchase");
-	$output =api_call($requestIEvend, "http://197.253.19.75:8029/vas/ie/purchase");
-	$output = json_decode($output, true);
-	$response = $output;
+	$transactionid = "CPL-".$transaction_id;
 	
+	$output = ["status"=>1];
+	
+	$response = $output;
 	if($output['status'] == 1){
 		$result = 0;
-		$token = $output['token'];
-		$unit = $output['unit_value'].$output['unit'];
-		$transref = $output["transactionUniqueNumber"];
+		$token = "93848384838478347";
+		$unit = "35.56unit";
+		$transref = "udodu-guriekfu-5948594";
 	}
 	else {
 		$result = '99999999';
+	}
 		
-		}
 }
 
 
 //Ibadan Pretpaid
 if($type==12){
 
-       require '/var/www/vhosts/api/vas/electricity/fet.php';
-
-			$ret = callibedc($amount,$destination,$transaction_id, 2);
-			$output = $ret;
-			$vxdata = $ret;
-			$response = $output;
-
-			if(isset($ret['success'])){
-				if($ret['success']== true){
-					$result = '0';
-					if(isset($ret['creditToken'])){
-						$token = $ret['creditToken'];
-					}
-				}
-			}
-			else {
-	$result = '99999999';
-	$error  = $json_data['code'] . '|' . $json_data['message'];		
-}
-}
-
-if($type == 23) {
-	$transctionid = "CPL-".$transaction_id;
-	require "/var/www/vhosts/api/vas/electricity/itex.php";
-	//$output =api_call($requestIEvend, "http://vas.itexapp.com/vas/ie/purchase");
-	$output =api_call($requestIBvend, "http://197.253.19.75:8029/vas/ibedc/payment");;
-	$output = json_decode($output, true);
+	$transactionid = "CPL-".$transaction_id;
+	
+	$output = ["status"=>1];
+	
 	$response = $output;
 	if($output['status'] == 1){
 		$result = 0;
-		$token = $output['token'];
-		$unit = $output['unit_value'].$output['unit'];
-		$transref = $output["transactionUniqueNumber"];
+		$token = "93848384838478347";
+		$unit = "35.56unit";
+		$transref = "udodu-guriekfu-5948594";
 	}
 	else {
 		$result = '99999999';
+	}
+}
+
+if($type == 23) {
+	$transactionid = "CPL-".$transaction_id;
+	
+	$output = ["status"=>1];
+	
+	$response = $output;
+	if($output['status'] == 1){
+		$result = 0;
+		// $token = "93848384838478347";
+		// $unit = "35.56unit";
+		// $transref = "udodu-guriekfu-5948594";
+	}
+	else {
+		$result = '99999999';
+	}
 		
-		}
 }
 
 
