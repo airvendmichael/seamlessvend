@@ -229,7 +229,7 @@ error_log($log_string,3,'vtu2_request.log');
 
 
 // ************************** INCLUDE PROCESSOR ***************************
-//require "call.php";
+require "call.php";
 // ************************************************************************
 
 
