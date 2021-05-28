@@ -258,7 +258,7 @@ if($type == 24){
 //DSTV
 
 	if($type == 30){
-	require '/var/www/vhosts/api/vas/airVend/baxi/req_dstv.php';
+	//require '/var/www/vhosts/api/vas/airVend/baxi/req_dstv.php';
 	$json_data   = json_decode($output,true);
 	$response = $output;
 	if($json_data['details']['status'] == 'ACCEPTED') {	
@@ -274,7 +274,7 @@ if($type == 24){
 //GOTV
 
 if($type == 40){
-	require '/var/www/vhosts/api/vas/airVend/baxi/req_gotv.php';
+	//require '/var/www/vhosts/api/vas/airVend/baxi/req_gotv.php';
 	$json_data   = json_decode($output,true);
 	$response = $output;
 	if($json_data['details']['status'] == 'ACCEPTED') {	
@@ -290,7 +290,7 @@ if($type == 40){
 
 //STARTIMES
 if($type == 70){
-	require '/var/www/vhosts/api/vas/airVend/baxi/req_startimes.php';
+	//require '/var/www/vhosts/api/vas/airVend/baxi/req_startimes.php';
 	$json_data   = json_decode($output,true);
 	$response = $output;
 		if($json_data['details']['status'] == 'ACCEPTED') {	
@@ -307,7 +307,7 @@ if($type == 70){
 //SPECTRANET
 if($type == 90){
 
-	require '/var/www/vhosts/api/vas/airVend/baxi/req_spectranet.php';
+	//require '/var/www/vhosts/api/vas/airVend/baxi/req_spectranet.php';
 	
                         $output = VendSpectranet($pincount, $amount, $pinvalue, $transaction_id);
                          $json_data = json_decode($output, true);
@@ -325,7 +325,7 @@ if($type == 90){
 
 //WAEC
 if($type == 80){
-	require '/var/www/vhosts/api/vas/airVend/baxi/req_waec.php';
+	//require '/var/www/vhosts/api/vas/airVend/baxi/req_waec.php';
 	$response = $output;
 	$json_data   = json_decode($output,true);
 	if($json_data['details']['status'] == 'ACCEPTED') {	
@@ -340,7 +340,7 @@ if($type == 80){
 
 //JAMB
 if($type == 81){
-	require '/var/www/vhosts/api/vas/electricity/req_abuja_electric.php';
+	//require '/var/www/vhosts/api/vas/electricity/req_abuja_electric.php';
 	$output = vendJamb($account, $code, $amount, $transaction_id);
 	$j   = json_decode($output,true);
 	$response = $output;
@@ -357,7 +357,7 @@ if($type == 81){
 
 //SMILE RECHARGE
 if($type == 50){
-	require '/var/www/vhosts/api/vas/airVend/baxi/req_smile.php';
+	//require '/var/www/vhosts/api/vas/airVend/baxi/req_smile.php';
 	$json_data   = json_decode($output,true);
 	$response = $output;
 						if($json_data['details']['status'] == 'ACCEPTED') {	
@@ -375,7 +375,7 @@ if($type == 50){
 //SMILE BUNDLE
 if($type == 60){
 
-	require '/var/www/vhosts/api/vas/airVend/baxi/req_smilebundle.php';
+	//require '/var/www/vhosts/api/vas/airVend/baxi/req_smilebundle.php';
 	$response = $output;
 	$json_data   = json_decode($output,true);					
 	if($json_data['details']['status'] == 'ACCEPTED') {	
@@ -390,7 +390,7 @@ if($type == 60){
 //BET9JA
 if($type==100){
 
-       require '/var/www/vhosts/api/vas/electricity/fet.php';
+      // require '/var/www/vhosts/api/vas/electricity/fet.php';
 
 			$ret = callbet9ja($amount,$destination,$transaction_id,2);
 			$output = $ret;
