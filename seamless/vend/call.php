@@ -3,7 +3,14 @@ error_reporting(E_ALL);
 ini_set('display_errors', 0);
 
 if($type <= 4 || $type == 27){
-	include '/var/www/vhosts/api/airtel/ussd/processor/'. $net['airtime_processor'];
+	//include '/var/www/vhosts/api/airtel/ussd/processor/'. $net['airtime_processor'];
+	if(!empty($account) && !empty($networkid) && !empty($amount)){
+		$result = 0;
+		$ep['senum'] = "23453028394792837";
+        $ep['scnum'] = "45957483848";
+        $ep['pin']   = '';
+        $ep['expires'] = "";
+	}
 	if(strlen($result) == 0) {
 	$result = 99999999;
 }
@@ -16,17 +23,16 @@ if($type <= 4 || $type == 27){
 
 
 if($type == 10) {
-	$transctionid = "CPL-".$transaction_id;
-	require "/var/www/vhosts/api/vas/electricity/itex.php";
-	//$output =api_call($requestIEvend, "http://vas.itexapp.com/vas/ie/purchase");
-	$output =api_call($requestIEvend, "http://197.253.19.75:8029/vas/ie/purchase");
-	$output = json_decode($output, true);
+	$transactionid = "CPL-".$transaction_id;
+	
+	$output = ["status"=>1];
+	
 	$response = $output;
 	if($output['status'] == 1){
 		$result = 0;
-		$token = $output['token'];
-		$unit = $output['unit_value'].$output['unit'];
-		$transref = $output["transactionUniqueNumber"];
+		$token = "93848384838478347";
+		$unit = "35.56unit";
+		$transref = "udodu-guriekfu-5948594";
 	}
 	else {
 		$result = '99999999';

@@ -1,4 +1,4 @@
-v<?php
+<?php
 
 //echo 'This service is SUSPENDED';
 //exit();
@@ -225,10 +225,11 @@ if($provider ==1){
 else{
 	//Providus
 
-	$mx = new ProvidusTransfer;
-	$data =  ["name"=>"Callphone LTD","amount"=>$amount, "narration"=>$remark, "accountNumber"=>$account, "bankCode"=>$bank, "ref"=>"CPL-".$transaction_id];
-	$output = $mx->transferFund($data);
-	$output = json_decode($output, TRUE);
+	// $mx = new ProvidusTransfer;
+	// $data =  ["name"=>"Callphone LTD","amount"=>$amount, "narration"=>$remark, "accountNumber"=>$account, "bankCode"=>$bank, "ref"=>"CPL-".$transaction_id];
+	// $output = $mx->transferFund($data);
+	// $output = json_decode($output, TRUE);
+	$ouput = ["responseCode"=>"00"];
 	if($output["responseCode"] === "00"){
 		$status = TRUE;
 
